@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>img 태그</title>
+    </head>
+    <body>
+        <h1>img태그</h1>
+        <!-- 
+            상대경로: 현재 위치를 기준으로 하는 파일 경로
+            - 프로젝트의 위치가 바뀌어도 그대로 사용할 수 있다는 장점
+            - 목적 파일의 위치가 바뀐다면 상대경로를 수정해야 하는 단점
+            ex: ../../img/img.png, ./src/img/img.jpg
+        -->
+        <img src="./img/sesac.jpeg" alt="새싹" width="300px">
+        <img src="img/sesac.jpeg" alt="새싹" width="300px">
+
+        <br>
+
+        <!-- 
+            절대경로: root(맨 처음, 최상단)부터 해당 파일까지의 경로
+            - 내 로컬환경에서는 어느 곳에서든 접근이 가능하다는 것이 장점
+            - 다른 로컬에서는 절대경로가 실제로 동일해야만 접근이 가능하다는 것이 단점
+            ex: https://www.naver.com, C:/Users/... 
+        -->
+        <img src="/Users/sba/Documents/github/sesac-ydp-6/02-html/img/sesac.jpeg" alt="새싹">
+
+        <!-- 
+            http://127.0.0.1:5500/02-html/img.html
+            127.0.0.1 => 로컬 디바이스 (내 컴퓨터 IP 주소) = localhost
+        -->
+
+        <br>
+
+        <!-- 인터넷 이미지 주소로 지정 -->
+
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAA4CAMAAABe34GAAAAAZlBMVEUAAAD////u7u6Dg4OTk5NkZGSsrKzg4OD19fWLi4vZ2dkVFRUyMjL6+vppaWnm5uZXV1d5eXnS0tIqKipeXl47Ozu2trafn5/BwcEiIiIaGhrLy8uZmZlSUlKlpaVvb28LCwtFRUUINVvnAAABgUlEQVRIiZXW63qCMAwG4EDlaDkqiEPB3f9NjtJGixz6Lf/o3ofFpG0g7zB60dysRzqy3Z2ITqAOSEUI6UzOmGpINxovwK5ODK4QXRhMEaLzrVfv6Zg2st7VrcEFpPVvPH/hPT2nnayWd7T4KYd4vWzrLO3rr/+dtkPYRWsdP0ynRcpLXcCVqdKl5tapkOGURGSvEAXxRxdnWsb38xQp63T9t42otfYhrFql9AXDctYnDAdz3rEbqrjqmmCvvpt6bxRrI3R7KMLzmHQI6d7oCtK8q0oEP1lLRAvWL0TzKUKs9W6o3Dnrxm2JLqyvUCr+v+ptBgQNkDbtoR7TuoYEbm+9U8iDmkl85hM31NEqXaOaAp/Q5quQk37AeiD88qGpft5nIrkin++qwg3niPStOUI4MHcs1k+f72/kmrh9ZsPTiaU1Sdy5FPbccfW/XUwp7/hUiOVMW176cqxG+3jzl4Q1Xbkwl1BP4Szkrf/+bLNnsZ80r19hf0fVSSnLk/9+/gNKNAxPI/SsfAAAAABJRU5ErkJggg==" alt="애플 로고">
+    
+        <hr>
+        <!-- 
+            a target attribute: 링크가 열릴 위치 지정
+            - _self(default): 현재 탭에서 열기
+            - _blank: 새 탭으로 열기
+         -->
+        <a href="http://www.naver.com">네이버 바로가기</a> <br>
+        <a href="http://www.naver.com" target="_blank">네이버 바로가기</a>
+        <a href="http://www.naver.com" target="_blank" title="마우스를 올리면 나타나는 제목!">네이버 바로가기</a>
+
+        <!-- a태그의 href 속성 값으로는 인터넷 상의 주소 뿐만 아니라 프로젝트 폴더 내의 다른 html 문서의 주소를 넣어도 됨 -->
+        <br>
+        <a href="./html-start.html">html 시작하기 공부내용 보기</a>
+    </body>
+</html>
