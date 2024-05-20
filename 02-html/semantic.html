@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Semantic Tag</title>
+    </head>
+    <body>
+        <!-- before: div 로만 페이지의 구조를 설계했을 때 -->
+        <!-- <div style="height: 50px; background-color: aquamarine;">
+            Header(헤더)
+        </div>
+        <div style="height: 1000px; background-color: crimson; display: flex">
+            <div style="width: 80%; background-color: beige;">
+                Section
+                <div style="background-color: aqua; height: 80px;">Article01 </div>
+                <div style="background-color: pink; height: 80px;">Article02 </div>
+                <div style="background-color: aqua; height: 80px;">Article03 </div>
+                <div style="background-color: pink; height: 80px;">Article04 </div>
+            </div>
+
+            <div style="width: 20%; background-color: darkkhaki;">
+                Aside
+            </div>
+        </div>
+        <div style="height: 80px; background-color: palegreen;">
+            Footer(푸터)
+        </div> -->
+
+        <!-- after: semantic 태그(div 태그와 역할은 다른게 없으나, "의미가 있는 태그")를 적절하게 활용해 구조를 작성할 때 -->
+        <header style="height: 50px; background: pink;">Header (헤더)</header>
+        <main style="height: 1000px; background: skyblue; display: flex;">
+            <!-- Main -->
+            <section style="background: orange; width: 80%;">Section
+                <article style="background: lime; height: 100px;">Article1</article>
+                <article style="background: darkgray; height: 100px;">Article2</article>
+                <article style="background: lime; height: 100px;">Article3</article>
+                <article style="background: darkgray; height: 100px;">Article4</article>
+            </section>
+            <aside style="background: royalblue; width: 20%;">Aside</aside>
+        </main>
+        <footer style="height: 80px; background: palegreen;">Footer (푸터)</footer>
+    </body>
+</html>
