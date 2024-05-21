@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 태그 연습</title>
+  </head>
+  <body>
+    <form>
+      <label for="user-email">이메일</label><input type="email" id="user-email"> <br><br>
+      <!-- label의 for와 input의 id를 일치하면 텍스트 클릭해도 포커싱이 된다-->
+      <label for="disabled">disabled 속성</label><input type="text" disabled id="disabled"> <br><br>
+      <!-- 텍스트 수정 불가능 -->
+      <input type="color"> <br><br>
+
+      <input type="checkbox" name="idol" value="loona">이달의소녀
+      <input type="checkbox" name="idol" value="txt">투바투
+      <input type="checkbox" name="idol" value="artms">아르테미스 <br><br>
+      <!-- 체크박스는 여러개 선택 가능 -->
+
+      <input type="radio" name="coffee" value="americano">아메리카노
+      <input type="radio" name="coffee" value="latte">카페라떼
+      <input type="radio" name="coffee" value="espresso">에스프레소
+      <!-- 라디오는 하나만 선택 가능 -->
+    </form>
+  </body>
+</html>
