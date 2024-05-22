@@ -1,0 +1,90 @@
+.div1{
+    background-color: aquamarine;
+    width: 100px;
+    height: 100px;
+}
+
+/* 
+    :hover: 요소에 마우스를 올렸을 때
+*/
+.div1:hover{
+    background-color: yellowgreen;
+    width: 150px;
+    height: 150px;
+}
+
+/* 
+    :active: 요소를 마우스로 클릭하고 있을 때
+*/
+.div1:active{
+    background-color: burlywood;
+    width: 200px;
+}
+
+/* 
+    :focus: 요소에 포커스가 되었을 때
+*/
+input:focus{
+    background-color: blueviolet;
+    color: white;
+    /* outline-color: lime; */
+}
+
+.links > a:hover{
+    background-color: coral;
+}
+
+.links > a:visited{
+    color: aqua;
+}
+
+
+
+h1:hover{
+    color: red;
+}
+
+h1 ~ a:active{
+    background-color: blue;
+}
+
+a + input:focus{
+    background-color: orange;
+}
+
+/* 요소 상황에 따른 가상 클래스 선택자 */
+
+.zoo > *{
+    background-color: green;
+    color: #fff;
+}
+
+/* 
+    1. E:firs-child : E(요소)가 첫번째 요소라면
+*/
+
+.zoo > :first-child{
+    background-color: red;
+}
+
+/* 
+    2. E:last-child : E(요소)가 마지막 요소라면
+*/
+
+.zoo > :last-child{
+    background-color: black;
+}
+
+/* E:nth-child(n) : E(요소)가 n번째 요소라면 */
+
+.zoo > :nth-child(2){
+    background-color: aqua;
+}
+
+/* 
+    E:not(XYZ): XYZ가 아닌 요소 선택
+*/
+
+.zoo > :not(div){
+    background-color: pink;
+}
