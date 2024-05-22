@@ -1,0 +1,69 @@
+/* 
+    *: 전체 선택자 
+*/
+
+*{
+    color: aqua;
+}
+
+/* 
+    태그명: 태그 선택자
+*/
+
+h1{
+    background-color: blanchedalmond;
+}
+
+p{
+    background-color: black;
+}
+
+/* 
+    .클래스명: 클래스 선택자
+*/
+
+.second{
+    background-color: orangered;
+}
+
+.small{
+    font-size: 10px;
+}
+
+.big{
+    font-size: 30px;
+}
+
+.dog{
+    color: yellow
+}
+
+/* 
+    #아이디명: 아이디 선택자
+*/
+
+#first{
+    background-color: lightgreen;
+}
+
+/* 
+    class, id 차이
+    - class: 그룹
+    - id: 고유
+*/
+
+.hello{
+    color: brown;
+}
+
+.hi{
+    color: blue;
+}
+
+#my-hello{
+    color: lime;
+}
+
+#one{
+    color: red;
+}
