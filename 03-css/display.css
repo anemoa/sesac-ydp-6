@@ -30,3 +30,17 @@
     height: 200px;
     margin: 20px;
 }
+
+.dis_prac{
+  display: block;
+  width: 200px;
+  height: 300px;
+  background-color: coral;
+}
+
+.dis_prac2{
+  display: inline-block;
+  width: 200px;
+  height: 150px;
+  background-color: aqua;
+}
