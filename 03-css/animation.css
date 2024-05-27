@@ -1,0 +1,170 @@
+/* 
+    - animation-name: @keyframes 애니메이션 이름 지정
+        - 시작: from or 0%
+        - 중간: 0 ~ 100%
+        - 끝: to or 100%
+
+    - animation-duration: 애니메이션이 한 번 재생되는데 걸리는 시간을 지정 (단위: s)
+    - animation-delay: 애니메이션이 시작되기 전에 기다리는 시간을 지정 (단위: s)
+    - animation-iteration-count: 애니메이션의 반복 횟수 (default: 1, infinite: 무한 반복)
+    - animation-timing-function: 애니메이션의 속도 변화를 지정
+        - linear, ease, ease-in, ease-in-out 등등
+    - animation-direction: 애니메이션의 방향을 지정
+        - normal, reverse(반대 방향), alternate(반복 할때마다 방향 바꿔줌), alternate-reverse
+        - alternate: from -> to 방향으로 애니메이션 진행 -> (다음 회차) to ->  from 방향을 바꿔가며 반복              
+*/
+
+.box{
+    background-color: violet;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    
+    animation-name: yves;
+    animation-duration: 2000ms;
+    animation-delay: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+/* yves: 애니메이션의 이름 (개발자 맘대로 짓기) */
+@keyframes yves {
+    0%{
+        left: 0px;
+    }
+
+    25%{
+        left: 200px;
+    }
+
+    50%{
+        left: 400px;
+    }
+
+    75%{
+        left: 200px;
+    }
+
+    100%{
+        left: 0px;
+    }
+}
+
+.bounce-ball1{
+    background-color: tomato;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius: 50%;
+    left: 100px;
+    top: 0;
+
+    /* animation-name: bc1;
+    animation-duration: 1000ms;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; */
+
+    /* 애니메이션 단축 프로퍼티 */
+    animation: bc1 1000ms ease-out infinite alternate;
+}
+
+@keyframes bc1 {
+    to{
+        top: 50px;
+    }
+
+    from{
+        top: 300px;
+    }
+}
+
+.bounce-ball2{
+    background-color: yellow;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    position: absolute;
+    animation-name: bc2;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bc2 {
+    from, to{
+        bottom: 0px;
+        animation-timing-function: ease-out;
+        /* 0px에서 정상속도로 시작 > 속도 줄이면서 300px 됨 */
+    }
+
+    50%{
+        bottom: 300px;
+        animation-timing-function: ease-in;
+        /* 300px에서 천천히 시작되어 > 0px로 가면서 정상속도로 끝 */
+    }
+}
+
+/* 
+    Tip)
+    * from에서 to로의 애니메이션 (정방향 애니메이션)
+
+    - from 애니메이션의 시작 상태를 나타냅니다
+    - to는 애니메이션의 종료 상태를 나타냅니다.
+    이러한 경우 애니메이션은 from 상태에서 시작하여 to 상태로 종료합니다.
+
+    * to에서 from으로의 애니메이션 (역방향 애니메이션) (to ~ from)
+
+    - to는 애니메이션의 시작 상태를 나타냅니다
+    - from은 애니메이션의 종료 상태를 나타냅니다
+    - 이러한 경우 애니메이션은 to 상태에서 시작하여 from 상태로 종료합니다.
+*/
+
+/* .bcball{
+    background-color: chartreuse;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+
+    position: absolute;
+    animation-name: bcball;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bcball {
+    from, to{
+        transform: translate(0, 0);
+    }
+    25%{
+        transform: translate(calc(100vw - 100px), 0);
+    }
+
+    50%{
+        transform: translate(calc(100vw - 100px), calc(100vh - 100px));
+    }
+    75%{
+        transform: translate(0, calc(100vh - 100px));
+    }
+} */
+
+
+
+.txt_move{
+    width: 100%;
+    position: relative;
+    animation-name: txt_move1;
+    animation-duration: 1500ms;
+    animation-iteration-count: 1;
+}
+
+@keyframes txt_move1 {
+    from{
+        left: 100%;
+        width: 200%;
+    }
+    to{
+        left: 0;
+        width: 100%;
+    }
+}
