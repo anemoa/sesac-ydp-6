@@ -21,14 +21,14 @@ body section h2{
 
 /* 인접 형제 선택자: + */
 /* 주의) txt라는 아이디를 갖는 요소 바로 뒤에 li 태그가 있어야 함 */
-#txt + li{
-    background-color: aqua;
-}
+/* #txt + li{
+    background-color: red;
+} */
 
 /* 일반 형제 선택자: ~ */
 
 #txt ~ li{
-    color: yellowgreen;
+    color: red;
 }
 
 /* CSS 색상 */
