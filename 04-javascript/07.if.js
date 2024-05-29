@@ -76,4 +76,5 @@ function loginUser(){
 const result = loginUser();
 // -> loginUser 함수의 리턴값(반환값)을 result 변수에 저장
 
-console.log(result);
+// console.log(result);
+console.log(0 === false);
