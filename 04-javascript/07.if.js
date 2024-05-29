@@ -12,7 +12,7 @@
 //아래와 동일한 코드
 // let number2 = prompt('숫자 입력해');
 // number2 = Number(number2);
-// console.log(typeof number2);
+
 
 
 // if(number > 10){
