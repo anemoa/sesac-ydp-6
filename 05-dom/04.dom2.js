@@ -3,7 +3,7 @@ const div1 = document.getElementById('div1');
 console.log(div1);
 
 // 태그 내부 내용 변경
-// innerHTML: 태그 사용 가능
+// innerHTML: 태그 사용  가능
 // innerText, textContent: 태그가 문자(기호)로 그대로 노출
 
 console.log("innerText >", div1.innerText);
@@ -16,10 +16,10 @@ console.log('innerHTML >', div1);
 // # 공통점
 // - 둘 모두 텍스트를 추가한다
 // # 차이점
-// innerHTML = HTML 태그를 해석하지 않는다. 보여지는 텍스트만 그대로
+// innerText = HTML 태그를 해석하지 않는다. 보여지는 텍스트만 그대로
 // textConent = HTML 태그를 포함하여 처리
 
-// div1.innerHTML = "여기는 <b>두 번째</b> 태그";
+// div1.innerText = "여기는 <b>두 번째</b> 태그";
 // console.log(div1);
 
 div1.textContent = "여기는 <b>세 번째</b> 태그";
