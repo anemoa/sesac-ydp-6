@@ -125,3 +125,46 @@ todoList.forEach( (el) => {
     el.classList.toggle('todo');
     el.classList.toggle('done');
 } )
+
+
+const oper = document.getElementById('operator');
+const result = document.getElementById('result');
+const value01 = document.getElementById('value1');
+const value02 = document.getElementById('value2');
+
+const cal = () => {
+
+    let operValue = oper.value;
+    let calcResult = 0;
+
+    if(value01.value.trim() === "" || value02.value.trin === ""){
+        alert('값을 입력');
+    }else if(operValue != '+' && operValue != '-' && operValue != '/' && operValue != '*'){
+        alert('연산자 입력');
+    }
+    // 입력값이 비었을때 버튼 누르면 경고창 뜨게 만들기
+
+    let value01Num = Number(value01.value);
+    let value02Num = Number(value02.value);
+
+    if(operValue == '+'){
+        calcResult = value01Num + value02Num;
+    }else if(operValue == '-'){
+        calcResult = value01Num - value02Num;
+    }else if(operValue == '*'){
+        calcResult = value01Num * value02Num;
+    }else if(operValue == '/'){
+        calcResult = value01Num / value02Num;
+    }
+
+    result.value = calcResult;
+
+}
+
+const resetInput = () => {
+    value01.value = '';
+    value02.value = '';
+    oper.value = '';
+    result.value = '';
+}
+
