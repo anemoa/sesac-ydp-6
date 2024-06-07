@@ -34,7 +34,7 @@
 
     <!-- WARNING: HTML 코드 변경 금지!! -->
     <hr />
-    <div class="container">
+    <!-- <div class="container">
       <h2>TODO List</h2>
       <ul>
         <li class="todo">
@@ -66,12 +66,47 @@
       <button type="button" onclick="cal();">계산</button>
       <button type="button" onclick="resetInput();">초기화</button><br /><br />
       <label for="result">결과: </label>
-      <input type="text" id="result" disabled="true" />
+      <input type="text" id="result" disabled="true" /> -->
       <!-- 
         disabled 속성은 해당 input을 비활성화 하여, 사용자가 클릭할 수 없게 하는 속성입니다.
         계산의 결과 값이 사용자에 의해 변경되는 것을 막기 위해 "disabled" 속성을 추가했습니다.
       -->
+    <!-- </form> -->
+
+    <h1>여기는 방명록!!</h1>
+    <form>
+      <label for="writer">작성자</label>
+      <input type="text" id="writer" autocomplete="off" />
+      <br />
+      <br />
+
+      <label for="content">내용</label>
+      <input type="text" id="content" style="width: 500px" autocomplete="off" />
+      <br />
+      <br />
+
+      <button type="button" onclick="writeNote();">등록</button>
     </form>
+
+    <br />
+    <br />
+
+    <table id="table" border="1" cellpadding="10" cellspacing="1">
+      <tr>
+        <th>작성자</th>
+        <th>내용</th>
+        <th>작성일</th>
+      </tr>
+      <!-- 
+        코드 추가 예시
+        <tr>
+          <td>홍길동</td>
+          <td>하이</td>
+          <td>2022-10-05 12:34</td>
+        </tr>
+      -->
+    </table>
+
 
 </body>
 </html>

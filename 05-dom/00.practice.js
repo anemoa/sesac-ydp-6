@@ -127,6 +127,8 @@ todoList.forEach( (el) => {
 } )
 
 
+// 여기서부터 계산기
+
 const oper = document.getElementById('operator');
 const result = document.getElementById('result');
 const value01 = document.getElementById('value1');
@@ -161,6 +163,8 @@ const cal = () => {
 
 }
 
+// 리셋 버튼
+
 const resetInput = () => {
     value01.value = '';
     value02.value = '';
@@ -168,3 +172,9 @@ const resetInput = () => {
     result.value = '';
 }
 
+
+
+// 방명록 실습과제
+
+// 1. 작성자 input에 입력되는 값을 변수로 만들자
+// 2. 작성내용 input에 입력되는 값을 변수로 만들자
