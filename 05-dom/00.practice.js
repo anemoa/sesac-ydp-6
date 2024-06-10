@@ -176,5 +176,46 @@ const resetInput = () => {
 
 // 방명록 실습과제
 
-// 1. 작성자 input에 입력되는 값을 변수로 만들자
-// 2. 작성내용 input에 입력되는 값을 변수로 만들자
+
+const writerInput = document.querySelector('#writer');
+const contentInput = document.querySelector('#content');
+
+const writeNote = () => {
+    // 1. 작성자 input에 입력되는 값을 변수로 만들자
+    let writeVal = writerInput.value;
+
+    // 2. 작성내용 input에 입력되는 값을 변수로 만들자
+    let contentVal = contentInput.value;
+
+    
+    // 3. table 요소 선택하기
+    let tableEl = document.querySelector('#table');
+
+    // 4. tr 요소 생성하기
+    let trEl = document.createElement('tr');
+
+    // 5. 작성자 셀 만들기
+    let tdWrite = document.createElement('td');
+    tdWrite.innerText = writeVal;
+    
+    // 6. 작성내용 셀 만들기
+    let tdContent = document.createElement('td');
+    tdContent.innerText = contentVal;
+
+    // 7. 작성일 cell 만들기
+    let dateCell = document.createElement('td');
+    let todayDate = new Date();
+    dateCell.innerText = `${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${todayDate.getDate()} 
+    ${todayDate.getHours()}:${todayDate.getMinutes()}`;
+
+    // 8. tr에 위에서 만든 내용들 추가
+    trEl.append(tdWrite, tdContent, dateCell);
+
+    // 9. table에 tr 추가
+    tableEl.append(trEl);
+
+
+    // 10. 입력이 되면 input 창 초기화 하기
+    writerInput.value = '';
+    contentInput.value = '';
+}
