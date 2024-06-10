@@ -19,7 +19,20 @@ const fs = require('fs');
 // })
 
 // 파일생성 appendFile() 추가, 기존파일을 전제
-fs.appendFile('mynewfile1.txt', 'kim', function(err){
-    if(err) throw err;
-    console.log('파일 생성3');
-})
+// fs.appendFile('mynewfile1.txt', 'kim', function(err){
+//     if(err) throw err;
+//     console.log('파일 생성3');
+// })
+
+// 파일 삭제
+fs.unlink('mynewfile2.txt', function(){
+    console.log('파일 삭제 끝');
+});
+
+// 파일 이름 변경
+fs.rename('mynewfile1.txt', 'renamefile1.txt', function(err){
+    if(err){
+        throw err;
+    }
+    console.log('파일 이름 변경');
+});
