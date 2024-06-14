@@ -42,7 +42,6 @@
 
 // 01.setTimeout_n_callback.js 에서 콜백함수를 사용해 작성한 코드를 promise를 이용해 바꿔보자
 
-
 // let product;
 // let price;
 
