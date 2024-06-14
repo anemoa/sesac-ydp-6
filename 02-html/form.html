@@ -8,9 +8,9 @@
     <body>
         <h1>폼 관련 태그를 알아보자!</h1>
 
-        <!-- form 태그 
+        <!-- form 태그: 사용자로부터 입력 받는 요소들을 감싸는 태그 
             - action 속성: 사용자가 폼에 입력한 값을 전달할 주소
-            - method 속성: 사용자가 폼에 입력한 값을 전달할 방법
+            - method 속성: 사용자가 폼에 입력한 값을 전달할 방법 (GET, POST)
             => 위 두 가지 속성은 "서버(백엔드)" 연관된 내용 -> 백엔드 진도 나갈때 다시 소개
             
             form은 화면에 드러나지 않는 추상적인 태그(양식)
@@ -18,6 +18,8 @@
         <form>
             <!-- form 요소: 폼 태그 안에 있는 사용자의 입력값을 받는 요소
                 input, textarea, select... 태그들에는 name이라는 속성을 가질 수 있다. 이것 역시 "서버"와 연관되어 있다.
+                - name 속성: 폼 요소(input, textarea, ...)에 각각 이름을 지정
+                    -> 서버가 어떤 폼 요소에 어떤 값이 입력되었는지를 구별해줄 수 있는 key 역할
             -->
 
             <!-- input 태그 
@@ -25,8 +27,9 @@
                  - placeholder 속성: 미리보기 텍스트 (안내문구)
             -->
 
-            Text <input type="text"> <br>
+            Text <input type="text" autofocus> <br>
             Text2 <input type="text" disabled> <br>
+            Text3 <input type="text" readonly value="안녕"> <br>
             
             <!-- label태그의 for속성값과 input태그의 id속성값의 이름을 일치시키면 label글씨를 클릭했을때 ipnut창에 포커싱이 된다
                 => 웹접근성에 적합한 코드를 작성한것. (사용자가 편리하게 사용할 수 있기 때문)
