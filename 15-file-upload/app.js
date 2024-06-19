@@ -15,6 +15,7 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 // const upload = multer({
 //     dest: 'uploads/',  
 // })
+app.use('/static', express.static(__dirname + '/public'))
 
 const uploadDetail = multer({
     storage: multer.diskStorage({
@@ -60,6 +61,12 @@ app.post('/upload/fields', uploadDetail.fields([{name: 'mint'}, {name: 'choco'}]
     
     res.send('업로드 성공! 2개 파일 인풋');
 });
+
+
+// 동적 폼 업로드
+app.post('/dynamicFile', uploadDetail.single('thumbnail'), (req, res) => {
+    res.send(req.file);
+})
 
 app.get('/', (req, res) =>{
     res.render('index', {title: '파일 업로드를 배워보자'})
