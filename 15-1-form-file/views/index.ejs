@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/thumbnail.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <h1> <%= title %></h1>
+
+    <h2>회원가입</h2>
+
+    <form action="/gaip" method="POST" enctype="multipart/form-data">
+        <input type="text" name="username" id="username">
+        <label for="username">이름</label> <br>
+
+        <input type="password" name="pw" id="pw">
+        <label for="pw">비밀번호</label> <br>
+
+        <input type="file" name="image" id="image">
+        
+        <button type="submit">업로드</button>
+    </form>
+    
+</body>
+</html>
