@@ -26,7 +26,18 @@ exports.getVisitors = (callback) => {
     console.log('model/Visitor.js >> ', rows);
     callback(rows)
   })
-};    
+};
+
+exports.getVisitor = (targetId, callback) => {
+  conn.query(`select * from visitor where id = ${targetId}`, (err, rows) => {
+    if(err){
+      throw err;
+    }
+    console.log('model/Visitor.js >>', rows);
+    // model/Visitor.js >> [ RowDataPacket { id: 9, name: '왐마', comment: '점마' } ]
+    callback(rows[0])
+  })
+}
 
 exports.postVisitor = (data, callback) => {
   conn.query(`insert into visitor(name, comment) values ('${data.name}', '${data.comment}')`, 
@@ -46,7 +57,31 @@ exports.postVisitor = (data, callback) => {
       //   protocol41: true,
       //   changedRows: 0
       // }
-      callback(rows.insertId)
+      callback(rows.insertId);
     }
   )
+}
+
+exports.deleteVisitor = (targetId, callback) => {
+  // targetId: 삭제해야 할 visitor id
+  conn.query(`delete from visitor where id = ${targetId}`, (err, rows) => {
+    if (err){
+      throw err;
+    }
+
+    console.log('moidel/Visitor.js >> ', rows);
+    callback(true); // 삭제
+  })
+};
+
+exports.patchVisitor = (updateData, callback) => {
+  const {name, comment, id} = updateData;
+  conn.query(`update visitor set name = '${name}', comment = '${comment}' where id = ${id}`, 
+  (err, rows) => {
+    if(err){
+      throw err;
+    }
+    console.log('model/Visitor.js >>', rows);
+    callback(true);
+  });
 };
