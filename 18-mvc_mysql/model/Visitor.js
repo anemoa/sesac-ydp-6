@@ -28,12 +28,14 @@ exports.getVisitors = (callback) => {
   })
 };
 
+
+// 단수 
 exports.getVisitor = (targetId, callback) => {
   conn.query(`select * from visitor where id = ${targetId}`, (err, rows) => {
     if(err){
       throw err;
     }
-    console.log('model/Visitor.js >>', rows);
+    console.log('새로운 확인', rows);
     // model/Visitor.js >> [ RowDataPacket { id: 9, name: '왐마', comment: '점마' } ]
     callback(rows[0])
   })

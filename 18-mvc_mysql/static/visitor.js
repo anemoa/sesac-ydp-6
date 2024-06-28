@@ -71,7 +71,7 @@ function editVisitor(id){
         method: 'GET',
         url: `/visitor/${id}`
     }).then(res => {
-        console.log(res.data);
+        console.log('확인 확인 테스트',res.data);
         // {id: 9, name: '왐마', comment: '점마'}
 
         const {name, comment} = res.data;
