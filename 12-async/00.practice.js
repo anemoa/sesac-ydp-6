@@ -57,13 +57,13 @@ function pickDrink(callback) {
   }, 3000);
 }
 
-<<<<<<< HEAD
+
 function pay(product, price) {
   setTimeout(function () {
     console.log(product, price);
     console.log(`상품명: ${product} // 가격: ${price}`);
   }, 5000);
-=======
+}
 
 function hell() {
     return new Promise(function(resolve, reject){
@@ -72,7 +72,7 @@ function hell() {
             resolve(result);
         }, 1000);
     })
->>>>>>> f5b65af2a0863fb83022c0c9c84e865bebcb9bf0
+
 }
 
 goMart();
