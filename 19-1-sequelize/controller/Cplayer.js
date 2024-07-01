@@ -16,6 +16,23 @@ exports.getPlayers = async (req, res) => {
         }
     }
     
+// exports.getPlayers = (req, res) => {
+//     // console.log(Visitor.getVisitors); // [Function (anonymous)]
+  
+//     // [before]
+//     // res.render('visitor', { data: Visitor.getVisitors() });
+  
+//     // [after]
+//     Player.getPlayers((result) => {
+//       // result 매개변수
+//       // : model/Visitor.js getVisitors함수의 callback(rows)의 "rows" 변수에 대응
+    
+//       console.log('controller/.js >> ', result);
+  
+//       res.render('player', { data: result });
+//     })
+//   };
+  
 
 
 
