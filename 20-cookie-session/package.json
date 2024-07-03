@@ -12,7 +12,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:cookie": "nodemon cookie.js",
-    "start:session": "nodemon session.js"
+    "start:session": "nodemon session.js",
+    "start:pop": "nodemon pop.js"
   },
   "keywords": [],
   "author": "",
