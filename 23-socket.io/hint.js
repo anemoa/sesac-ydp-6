@@ -16,7 +16,6 @@ nickObjs['apple'] = '사과';
 
 // [3] 변수를 이용한 속성 추가
 nickObjs[socket.id] = 'yves';
-
 console.log('nickObjs >>', nickObjs);
 
 // js에서 obj에 특정 key가 존재하는지 검사
