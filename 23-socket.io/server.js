@@ -26,6 +26,12 @@ app.get('/', (req, res) => {
 // 사용자들의 닉네임 모음 객체
 const nickObjs = {};
 
+// 실습 [3-2-3]
+// 유저 목록 업데이트
+function updateList(){
+    io.emit('updateNicks', nickObjs) // 전체 사용자 닉네임 모음 객체 전다
+
+}
 
 // io.on(): socket 관련한 통신 작업을 처리
 io.on('connection', (socket) => {
@@ -52,7 +58,7 @@ io.on('connection', (socket) => {
     // });
 
     // [실습 3] 채팅창 입장 안내 문구
-    io.emit('noticeAll', `${socket.id} 님이 입장했어요`);
+    // io.emit('notice', `${socket.id} 님이 입장했어요`);
 
     // [실습 3-2] 채팅창 입장 문구 socket.id -> nickname
     // emit() from server
@@ -65,6 +71,43 @@ io.on('connection', (socket) => {
 
         // [실습 3-2-1]
         // 프론트에서 입력한 nick이 nickObjs 객체에 존재하는지 검사.
+        // 이미 존재: error 이벤트 + '이미 존재하는 닉네임 입니다'
+        // => 클라이언트: error 이벤트 받으면 alert 띄우기
+        // 새 닉네임: notice 이벤트 + ${nick} 님 입장했다.
+        if(Object.values(nickObjs).indexOf(nick) > -1){
+            // 이미 존재하는 닉네임이 있음.
+            socket.emit('error', '이미 존재하는 닉네임 이다');
+        } else{
+            // 새로운 닉네임
+            nickObjs[socket.id] = nick;
+            console.log('접속 유저 목록: ', nickObjs);
+            io.emit('notice', `${nick}님이 입장하셨습니다.`); // 전체 공지
+        
+            // [실습 3-2-2]
+            socket.emit('entrySuccess', nick); // 해당 소켓의 데이터를 전송.
+            updateList();
+
+        }
+    })
+
+    // [실습 3-3] 클라이언트 퇴장시
+    // 'notice' 이벤트로 퇴장 공지
+    socket.on('disconnect', () =>{
+        console.log('접속끊김: ', `${nickObjs[socket.id]} 님이 퇴장`, socket.id);
+
+        io.emit('notice', `${nickObjs[socket.id]} 님이 퇴장했다.`)
+
+        delete nickObjs[socket.id]; // 닉네임 삭제
+        updateList();
+    })
+
+    // [실습 4] 채팅창 메세지 전송
+    // send 이벤트를 받아서
+    // 모두에게 newMessage 이벤트로 {닉네임, 입력창 내용} 데이터를 전송
+    socket.on('send', (data) => {
+        // { dm: 'all', myNick: 'ftr5', msg: 'aff' }
+        // console.log('서버측 data:' , data);
+        io.emit('newMessage', {nick : data.myNick, msg: data.msg})
     })
 })
 
