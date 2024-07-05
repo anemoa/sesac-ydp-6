@@ -107,7 +107,30 @@ io.on('connection', (socket) => {
     socket.on('send', (data) => {
         // { dm: 'all', myNick: 'ftr5', msg: 'aff' }
         // console.log('서버측 data:' , data);
-        io.emit('newMessage', {nick : data.myNick, msg: data.msg})
+        // "전체 발송"
+        // io.emit('newMessage', {nick : data.myNick, msg: data.msg}) -> DM 기능, IF문 시 주석
+
+        // [실습 5] 디엠 기능 추가하기
+        // DM인지 아닌지 구분해서
+        // io.to(소켓아이디).emit(event_name, data): 소켓아이디에 해당하는 클라이언트에게'만' 전송
+        
+        if(data.dm == 'all'){
+            // 전체 발송
+            io.emit('newMessage', {nick : data.myNick, msg: data.msg});
+        }else{
+            // DM 발송
+            let dmSocketId = data.dm;
+            const sendData = {
+                nick: data.myNick,
+                msg: data.msg,
+                dm: '(속닥)',
+            }
+
+            io.to(dmSocketId).emit('newMessage', sendData) // DM을 보내야하는 타겟(소켓아이디) 한테 메세지 전송
+            socket.emit('newMessage', sendData);
+            // console.log('sendData >>', sendData); // { nick: 'fff', msg: 'aasd', dm: '(속닥)' }
+
+        }
     })
 })
 
