@@ -50,6 +50,11 @@
         .d-none{
             display: none;
         }
+        /* dm 기능 추가 */
+
+        .secret-chat div{
+            background: pink;
+        }
 
     </style>
 </head>
@@ -167,7 +172,7 @@
         // [실습 3-2-3]
         // 유저 목록 업데이트 (select 박스의 option 태그 개수 변경)
         socket.on('updateNicks', (nickObjs) => {
-            console.log('client nickObjs: ', nickObjs.key);
+            console.log('client nickObjs: ', nickObjs);
             let options = `<option value="all">전체</option>`
 
             // TODO: nickObjs를 반복 돌아서 option 태그에 추가.
@@ -175,7 +180,13 @@
             // option 태그의 컨텐츠는 nick 값
             for(let key in nickObjs){
                 console.log(key);
-                options += `<option value="${key}">${nickObjs[key]}</option>`
+                console.log(socket.id);
+                // [추가 실습] 나에게 dm 메세지 2번 찍히는 이슈 (option 태그에서 본인을 제외해야 함)
+                if (key !== socket.id ){
+                    options += `<option value="${key}">${nickObjs[key]}</option>`
+                }
+                
+
             }
             document.querySelector('#nick-list').innerHTML = options;
         });
@@ -223,7 +234,14 @@
                 div.classList.add('other-chat');
             }
 
-            // [실습 4-2]
+            // [실습 5] DM 기능 추가하기
+            if(data.dm){
+                div.classList.add('secret-chat');
+                divChat.textContent = data.dm;
+            }
+
+
+            // [실습 4-2] 실제로 대화 내용이 추가되는 부분
             divChat.textContent += `${data.nick}: ${data.msg}`
             div.append(divChat);
             chatList.append(div);
