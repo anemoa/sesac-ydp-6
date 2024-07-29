@@ -1,0 +1,65 @@
+
+.bug_container{
+    width: 700px;
+    height: 700px;
+    position: relative;
+}
+.box{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.bug1{
+    background-color: navy;
+    position: relative;
+    left: 100px;
+    top: 150px;
+    z-index: 1;
+}
+.bug2{
+    background-color: blue;
+    position: absolute;
+    left: 180px;
+    top: 220px;
+    z-index: 2;
+}
+.bug3{
+    background-color: rgb(117, 117, 189);
+    position: absolute;
+    left: 220px;
+    top: 270px;
+    z-index: 3;
+}
+.bug4{
+    background-color: rgb(125, 125, 255);
+    position: absolute;
+    left: 270px;
+    top: 330px;
+    z-index: 4;
+}
+.bug5{
+    background-color: skyblue;
+    position: absolute;
+    left: 330px;
+    top: 390px;
+    z-index: 8;
+}
+.eye_w{
+    background-color: #fff;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+    top: 40px;
+    left: 25px;
+}
+.eye_b{
+    background-color: #000;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 55px;
+    left: 25px;
+}
