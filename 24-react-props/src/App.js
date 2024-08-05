@@ -12,7 +12,7 @@ function App() {
       <FunctionComponent name="SeSAC 6기" />
       <FunctionComponent name="SeSAC 6기" />
       <hr />
-      <Button Link="https://www.google.com">Google</Button>
+      <Button Link="https://www.google.com">googlee</Button>
       <Button></Button>
     </div>
   );
