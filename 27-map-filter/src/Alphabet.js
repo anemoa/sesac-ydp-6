@@ -64,6 +64,15 @@ export const Alphabet = () => {
   }
 
 
+  // 글자 삭제
+  const deleteAlpha = (targetId) => { // value.id = targetId
+    console.log(targetId); //targetId: 삭제될 요소의 id
+
+    const newAlpha = alphabet.filter((alpha) => alpha.id !== targetId);
+    setAlphabet(newAlpha);
+  }
+
+  // 키보드 이벤트
   const handleKeyDown = (e) =>{
     if(e.code == 'Enter'){
         addAlpha();
@@ -105,6 +114,12 @@ export const Alphabet = () => {
         {/* Q2. input에서 엔터키 눌러도 입력되도록 */}
       <button onClick={addAlpha} >추가</button>
 
+      {/* 알파벳 삭제해보기 */} 
+      <ol>
+        {alphabet.map((value) => (
+            <li key={value.id} onDoubleClick={() => deleteAlpha(value.id)}>{value.alpha}</li>
+        ))}
+      </ol>
 
     </div>
   );

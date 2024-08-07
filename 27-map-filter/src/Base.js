@@ -41,6 +41,26 @@ export const Base = () => {
         )
     });
 
+    // filter() 함수 사용
+    // # ex1
+
+    let animals = ['dog', 'cat', 'rabbit'];
+
+    let newAnimals = animals.filter((animal) => {
+        return animal.length > 3;
+    })
+
+    console.log('newAnimals >> ', newAnimals);
+
+    // # ex2
+    let words = ['dog', 'cat', 'rabbit'];
+    
+    let result2 = words.filter((word) => {
+        return word.includes('a');
+    })
+
+    console.log(result2);
+
   return (
     <div>
         <h1>Map (1)</h1>
@@ -65,6 +85,17 @@ export const Base = () => {
             </li>
         )
         })}
+        </ul>
+
+        <h1>filter(1)</h1>
+
+        <ul>
+            {newAnimals.join(', ')}
+        </ul>
+
+        <h1>filter(2)</h1>
+        <ul>
+            {result2.join(', ')}
         </ul>
     </div>
   )
