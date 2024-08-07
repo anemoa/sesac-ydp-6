@@ -6,10 +6,14 @@ import HandlerEx from './ex/HandlerEx';
 import Color from './ex/Color';
 import Text from './ex/Text';
 import Total from './ex/Total';
+import { EventStudy } from './EventStudy';
+import Prac2 from './Prac2';
+import Prac from './Prac';
 
 function App() {
   return (
     <div className="App">
+      {/* <EventStudy /> */}
       {/* <SyntheticEvent />
       <ClassBind></ClassBind> */}
       {/* <Counter /> */}
@@ -17,7 +21,9 @@ function App() {
       {/* <HandlerEx /> */}
       {/* <Color /> */}
       {/* <Text></Text> */}
-      <Total />
+      {/* <Total /> */}
+      {/* <Prac2 /> */}
+      <Prac />
     </div>
   );
 }
