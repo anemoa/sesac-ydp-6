@@ -58,14 +58,11 @@ export const Alphabet = () => {
     setAlphabet(newAlpha);
     setInputAlpha(''); // 입력 칸 초기화
 
-    setAlphabet(newAlpha);
-    setInputAlpha(''); // 입력 칸 초기화
-
   }
 
 
   // 글자 삭제
-  const deleteAlpha = (targetId) => { // value.id = targetId
+  const deleteAlpha = (targetId) => { // targetId: 삭제될 요소의 Id = value.id 
     console.log(targetId); //targetId: 삭제될 요소의 id
 
     const newAlpha = alphabet.filter((alpha) => alpha.id !== targetId);
