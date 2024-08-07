@@ -7,8 +7,6 @@ const Total = () => {
     const bgColorList = ['green', 'red', 'blue'];
     const colorList = ['pink', 'violet', 'gray'];
 
-
-
     const [color, setColor] = useState('white');
     const [bgColor, setBgColor] = useState('black');
     const [text, setText] = useState('text');
