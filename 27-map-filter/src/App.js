@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       {/* <Base /> */}
       {/* <Alphabet /> */}
-      <Input />
+      {/* <Input /> */}
     </div>
   );
 }
