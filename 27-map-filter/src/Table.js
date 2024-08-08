@@ -31,7 +31,7 @@ export const Table = () => {
     console.log('searchResult >?>', ele);
     const {id, user, title} = ele;
     console.log(id, user, title);
-    const newList2 = searchRes.concat({
+    const newList2 = searchRes.push({
       id: id,
       user: user,
       title: title
@@ -91,6 +91,8 @@ export const Table = () => {
         <button type='button' onClick={searchAll}>전체</button>
 
       </div>
+
+      {searchRes}
 
       <PracTable list={list} /> 
       {/* 테이블은 컴포넌트로 따로 만들었으며, list를 props로 보내줍니다. */}
