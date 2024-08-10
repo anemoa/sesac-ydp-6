@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useRef} from 'react'
 import { PracTable } from './PracTable';
 
 export const Table = () => {
@@ -10,8 +10,19 @@ export const Table = () => {
   const [search, setSearch] = useState(''); // 검색창 상태 감지
   const [searchRes, setSearchRes] = useState([]); // 검색한 결과의 배열
 
+  const inputRef = useRef();
+  const inputFocus = () => {
+
+    inputRef.current.focus();
+  }
+
 
   const addTxt = () => { // 작성한 글을 출력하게 해주는 함수
+
+    if( (title.trim().length && user.trim().length) === 0){
+      return inputFocus();
+  }
+
     const newTxt = list.concat({
       id: list.length + 1,
       user: user,
@@ -67,7 +78,7 @@ export const Table = () => {
     <div>
 
       <label htmlFor="user">작성자: </label>
-      <input type="text" id='user' value={user} onChange={(e) => {
+      <input type="text" id='user' ref={inputRef} value={user} onChange={(e) => {
         setUser(e.target.value);
       }}/>
 
