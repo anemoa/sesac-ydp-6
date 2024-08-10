@@ -6,6 +6,7 @@ import  LifeCycleClass  from "./LifeCycleClass";
 import LifeCycleFunction from "./LifeCycleFunction";
 import { Prac } from "./Prac";
 import { Prac2 } from "./Prac2";
+import { Prac3 } from "./Prac3";
 
 
 
@@ -19,7 +20,8 @@ function App() {
       {/* <LifeCycleClass /> */}
       {/* <LifeCycleFunction /> */}
       {/* <Prac /> */}
-      <Prac2 />
+      {/* <Prac2 /> */}
+      <Prac3 />
     </div>
   );
 }
