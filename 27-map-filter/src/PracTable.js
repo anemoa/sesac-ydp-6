@@ -5,6 +5,7 @@ export const PracTable = (props) => {
     // console.log(props);
     const {list} = props;
 
+    console.log(props.list);
 
   return (
     <div>

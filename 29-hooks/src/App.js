@@ -5,6 +5,7 @@ import { UseCallBackEx } from './Components/UseCallBackEx';
 import { UseCallbackEx2 } from './Components/UseCallbackEx2';
 import UseMemoEx from './Components/UseMemoEx';
 import { UseReducerEx } from './Components/UseReducerEx';
+import Form  from './Components/react-hook-form/Form';
 import { useTitle } from './hooks/useTitle';
 
 function App() {
@@ -15,8 +16,9 @@ function App() {
       {/* <UseCallBackEx /> */}
       <hr />
       {/* <UseCallbackEx2 postId={9}/> */}
-      <UseReducerEx />
-      <Faq />
+      {/* <UseReducerEx /> */}
+      {/* <Faq /> */}
+      <Form />
     </div>
   );
 }

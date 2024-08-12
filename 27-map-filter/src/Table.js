@@ -63,6 +63,7 @@ export const Table = () => {
       const newList = list.filter((ele) => {
         if(ele.title.includes(search)){
           return searchResult(ele);
+          console.log(searchResult);
         }else{
           return;
         }
@@ -109,7 +110,7 @@ export const Table = () => {
       {/* 테이블은 컴포넌트로 따로 만들었으며, list를 props로 보내줍니다. */}
       <hr />
 
-      {/* {searchRes.length > 0 ? <PracTable list={searchRes} /> : <div>검색없어요</div>} */}
+      {searchRes.length > 0 ? <PracTable list={searchRes} /> : <div>검색없어요</div>}
 
 
     </div>

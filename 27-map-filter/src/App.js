@@ -1,4 +1,5 @@
 import { Alphabet } from './Alphabet';
+import Practice4 from './Answer';
 import './App.css';
 import { Base } from './Base';
 import { Input } from './Input';
@@ -11,6 +12,7 @@ function App() {
       {/* <Alphabet /> */}
       {/* <Input /> */}
       <Table />
+      {/* <Practice4 /> */}
     </div>
   );
 }
