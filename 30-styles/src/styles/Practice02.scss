@@ -1,0 +1,61 @@
+$first-ball: pink;
+$second-ball: yellow;
+$third-ball: green;
+
+
+
+@mixin ballting1($move1, $move2, $move3, $move4){
+    animation: #{$move1} 1000ms infinite;
+
+    @keyframes #{$move1}{
+        0%{
+            top: $move4;
+            left: $move4;
+        }
+        50%{
+            top: $move2;
+            left: $move2;
+        }
+        75%{
+            top: $move3;
+            left: $move3;
+        }
+        100%{
+            top: $move4;
+            left: $move4;
+        }
+    }
+}
+
+
+
+.wrap{
+    width: 500px;
+    height: 500px;
+    position: relative;
+
+
+    .ball{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: absolute;
+
+        &.first{
+            background-color: $first-ball;
+            @include ballting1(move1, 50px , 70px, 0);
+        }
+
+        &.second{
+            background-color: $second-ball;
+            @include ballting1(move2, 10px , 30px, 0);
+        }
+
+        &.third{
+            background-color: $third-ball;
+            @include ballting1(move3, 90px , 120px, 0);
+        }
+    }
+
+
+}
