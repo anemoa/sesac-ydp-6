@@ -16,7 +16,8 @@ const MINUS = 'counter/MINUS';
     -> 리듀서는 이 type을 보고 어떤 상태 변경을 해야할지 판단
     'type' = 액션의 유형을 설명하는 문자열 (필수 속성)
     * 추가 데이터 종류
-    payload / met / error
+    payload / meta / error
+    - payload: 액션 객체에서 추가적인 (구체적인) 데이터를 전달하는 속성.
 
 */
 
