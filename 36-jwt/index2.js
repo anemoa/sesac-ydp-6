@@ -35,6 +35,7 @@ app.get('/', (req, res) => {
     if(req.session.user){
         const token = req.session.user.token;
         console.log('token >>>', token);
+        
 
         try{
             // JWT 토큰 검증
