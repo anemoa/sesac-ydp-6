@@ -15,66 +15,80 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+// 세션 설정
+app.use(
+    session({
+        secret: SECRET,
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            httpOnly: true,
+            secure: false,
+            maxAge: 5 * 1000,
+        }
+    })
+)
+
+
+// 메인 페이지 (세션 기반 검증)
 app.get('/', (req, res) => {
-    res.render('index');
+    if(req.session.user){
+        const token = req.session.user.token;
+        console.log('token >>>', token);
+
+        try{
+            // JWT 토큰 검증
+            const result = jwt.verify(token, SECRET);
+            console.log('result >>', result);
+
+            if(result.id === userInfo.id){
+                // 검증 성공시 사용자 정보 출력
+                res.render('index2', {name: req.session.user.name});
+            }else{
+                // 검증 실패
+                res.redirect('/login');
+            }
+        }catch(error){
+            console.log('검증된 회원 아님', error);
+        }
+    }else{
+        res.redirect('/login');
+    }
 });
 
 app.get('/login', (req, res) => {
     res.render('login');
 });
 
+// 로그인 처리
 app.post('/login', (req, res) => {
     try{
         const {id, pw} = req.body; // 유저가 입력한 정보
-        const {id: uId, pw: uPw} = userInfo; // 유저의 DB 정보
+        const {id: uId, pw: uPw} = userInfo; // 유저의 디비 정보
 
         if(id === uId && pw === uPw){
             // 토큰 생성
             const token = jwt.sign({id}, SECRET);
+            console.log('token >>>', token);
+
+            // 세션에 사용자 정보 저장
+            req.session.user = {id, name: userInfo.name, token};
             res.json({result: true, token});
         }else{
-            // 로그인 실패 등답
             res.json({
                 result: false,
-                message: '로그인 정보가 틀림',    
+                message: '땡땡땡!',
             })
-            
         }
-
-    } catch (error){
+    } catch(error){
         console.log(error);
     }
 });
 
-app.post('/token', (req, res) => {
-    // 서버는 클라이언트 요청의 Authorization 헤더를 확인.
-    if(req.headers.authorization){
-        console.log('인증 헤더 >>', req.headers.authorization);
 
-        // ['Bearer', 'token_string] 형태
-        const token = req.headers.authorization.split(' ');
-        console.log('token >>', token);
-
-        try{
-            // 토큰 검증
-            const result = jwt.verify(token[1], SECRET);
-            console.log('result >>', result);
-
-            // 유효한 토큰
-            if(result.id === userInfo.id){
-                res.json({result: true, name: userInfo.name});
-            }
-        } catch(error){
-            // 토큰 검증 실패 or 유효하지 않은 토큰일 때
-            console.log(error);
-            res.json({
-                result: false,
-                message: '인증된 회원 아님',
-            });
-        }
-    } else{
-        res.redirect('/login');
-    }
+app.get('/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect('/login');
 })
 
 app.listen(PORT, () => {
